@@ -73,6 +73,7 @@ function search(){
                       //div.innerHTML += '<a target="_blank" href="' + 'Diarios' + '/' + strUser + '/' + strUse + '/' + first + '/' + secound + '/' + key + '/' + vals +'">' + vals + '<br>';
                       //div.innerHTML += '<br>';
 
+                      //Si es un objeto repetir el mismo proceso
                       if(typeof vals === 'object'){
                         for(var key in vals){
                           fourth = vals[key];
