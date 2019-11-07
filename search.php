@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Archivos Digitales</title>
 	<link rel="stylesheet" href="">
-	<script type="text/javascript" src="search.js"></script>
+	<script type="text/javascript" src="js/search.js"></script>
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
 	<!-- JS Code -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
@@ -34,7 +34,9 @@
     </span>
   </div>
 </nav>
-	<?php
+<!-- Esta funcion es para scanear el directorio Diarios de forma recursiva, guardamos 
+el arbol de directorios en el arreglo $arr -->
+<?php
 	$arr = dirToArray("Diarios");
 	function dirToArray($dir) {
 	   $result = array();
@@ -114,18 +116,24 @@
 
 		echo '</div>';
 	echo '</div>';
-	?>
+?>
 
 </body>
 </html>
+<!-- Usamos el framework jquery para facilitar las cosas -->
 <script src="js/jquery.js"></script>
 <script>
+
+//Pasamos el arreglo que tiene el directotio completo a una variable en javascript
 var arr = <?php echo json_encode($arr); ?>;	
+
+//En el evento change del elemento busq limpiamos result y res
 $("#busq").change(function() {
   document.getElementById('result').innerHTML = "";
   document.getElementById('res').innerHTML = "";
 });
 
+//En el evento change del elemento result limpiamos el elemento res
 $("#result").change(function() {
   document.getElementById('res').innerHTML = "";
 });
